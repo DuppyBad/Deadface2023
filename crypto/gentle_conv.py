@@ -6,9 +6,12 @@ for i in rb:
 
 
 def gray_to_binary(n):
+    # gray code functions via having consecutive values differ by one bit, we could use a lookup table OR we could use bitshift magic
     mask = n >> 1
     while mask != 0:
+        # We invert current bit if the paired bit in the mask is the same
         n ^= mask
+        # shift mask along so that we can consider a new bit
         mask >>= 1
     return n
 list_2 = []
